@@ -129,14 +129,17 @@ endif
 if config_atahpt
   srcs += 'atahpt.c'
   cargs += '-DCONFIG_ATAHPT=1'
+  need_raw_access = true
 endif
 if config_atapromise
   srcs += 'atapromise.c'
   cargs += '-DCONFIG_ATAPROMISE=1'
+  need_raw_access = true
 endif
 if config_atavia
   srcs += 'atavia.c'
   cargs += '-DCONFIG_ATAVIA=1'
+  need_raw_access = true
 endif
 if config_buspirate_spi
   srcs += 'buspirate_spi.c'
@@ -162,6 +165,7 @@ endif
 if config_drkaiser
   srcs += 'drkaiser.c'
   cargs += '-DCONFIG_DRKAISER=1'
+  need_raw_access = true
 endif
 if config_dummy
   srcs += 'dummyflasher.c'
@@ -176,6 +180,7 @@ endif
 if config_gfxnvidia
   srcs += 'gfxnvidia.c'
   cargs += '-DCONFIG_GFXNVIDIA=1'
+  need_raw_access = true
 endif
 if config_raiden
   srcs += 'raiden_debug_spi.c'
@@ -198,6 +203,7 @@ if config_internal
     srcs += 'wbsio_spi.c'
   endif
   config_bitbang_spi = true
+  need_raw_access = true
   cargs += '-DCONFIG_INTERNAL=1'
   if get_option('config_internal_dmi')
     # Use internal DMI/SMBIOS decoder by default instead of relying on dmidecode.
@@ -211,6 +217,7 @@ endif
 if config_it8212
   srcs += 'it8212.c'
   cargs += '-DCONFIG_IT8212=1'
+  need_raw_access = true
 endif
 if config_linux_mtd
   srcs += 'linux_mtd.c'
@@ -231,32 +238,39 @@ endif
 if config_nic3com
   srcs += 'nic3com.c'
   cargs += '-DCONFIG_NIC3COM=1'
+  need_raw_access = true
 endif
 if config_nicintel
   srcs += 'nicintel.c'
   cargs += '-DCONFIG_NICINTEL=1'
+  need_raw_access = true
 endif
 if config_nicintel_eeprom
   srcs += 'nicintel_eeprom.c'
   cargs += '-DCONFIG_NICINTEL_EEPROM=1'
+  need_raw_access = true
 endif
 if config_nicintel_spi
   srcs += 'nicintel_spi.c'
   config_bitbang_spi = true
   cargs += '-DCONFIG_NICINTEL_SPI=1'
+  need_raw_access = true
 endif
 if config_nicnatsemi
   srcs += 'nicnatsemi.c'
   cargs += '-DCONFIG_NICNATSEMI=1'
+  need_raw_access = true
 endif
 if config_nicrealtek
   srcs += 'nicrealtek.c'
   cargs += '-DCONFIG_NICREALTEK=1'
+  need_raw_access = true
 endif
 if config_ogp_spi
   config_bitbang_spi = true
   srcs += 'ogp_spi.c'
   cargs += '-DCONFIG_OGP_SPI=1'
+  need_raw_access = true
 endif
 if config_pickit2_spi
   srcs += 'pickit2_spi.c'
@@ -277,6 +291,7 @@ endif
 if config_satamv
   srcs += 'satamv.c'
   cargs += '-DCONFIG_SATAMV=1'
+  need_raw_access = true
 endif
 if config_satasii
   srcs += 'satasii.c'
@@ -286,6 +301,7 @@ if config_serprog
   srcs += 'serprog.c'
   cargs += '-DCONFIG_SERPROG=1'
   need_serial = true
+  need_raw_access = true
 endif
 if config_usbblaster_spi
   srcs += 'usbblaster_spi.c'
